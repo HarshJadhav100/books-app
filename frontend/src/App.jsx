@@ -31,7 +31,7 @@ function Books() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/api/books',{
+    fetch('https://books-api-sltx.onrender.com/api/books',{
       headers:{authorization:token}
     })
     
@@ -46,7 +46,7 @@ function Books() {
 
   const handleAdd = () => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/api/books', {
+    fetch('https://books-api-sltx.onrender.com/api/books', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json',authorization:token },
       body: JSON.stringify({ title, author, price })
@@ -61,7 +61,7 @@ function Books() {
 
   const handleDelete = (id) => {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:5000/api/books/${id}`, {
+    fetch(`https://books-api-sltx.onrender.com/api/books/${id}`, {
       method: 'DELETE',
       headers: { authorization: token }
     }).then(() => setBooks(books.filter((book) => book._id !== id)));
@@ -69,7 +69,7 @@ function Books() {
 
   const handleUpdate = (id) => {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:5000/api/books/${id}`, {
+    fetch(`https://books-api-sltx.onrender.com/api/books/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json',authorization:token2 },
       body: JSON.stringify({ 
