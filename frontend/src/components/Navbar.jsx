@@ -1,25 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 function Navbar() {
-
     const navigate = useNavigate();
-
-    const handleLogout = ()=>{
-
-        localStorage.removeItem('token');
-        localStorage.removeItem('name'); 
-        navigate('/login')
-        
-        
-    }
     const name = localStorage.getItem('name');
 
-    return(
-        <nav>
-            <h2>
-                Books App
-            </h2>
-            <span>Welcome, {name}!</span>
-            <button onClick={handleLogout}>Log Out</button>
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        navigate('/login');
+    };
+
+    return (
+        <nav className="bg-blue-600 text-white px-6 py-4 flex justify-between items-center shadow-md">
+            <h2 className="text-xl font-bold">📚 Books App</h2>
+            <div className="flex items-center gap-4">
+                <span className="text-sm">Welcome, {name}!</span>
+                <button
+                    className="bg-white text-blue-600 px-4 py-1 rounded hover:bg-gray-100 font-medium"
+                    onClick={handleLogout}
+                >
+                    Logout
+                </button>
+            </div>
         </nav>
     );
 }
